@@ -1,0 +1,54 @@
+﻿@page
+@model ATZTech.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-info">Product</h1>
+
+<p>
+    <a class="text-dark" asp-page="Create">Add New Product</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="text-info" >
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a class="text-primary" asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a class="text-info" asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a class="text-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
