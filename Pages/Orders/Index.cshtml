@@ -1,0 +1,42 @@
+﻿@page
+@model ATZTech.Pages.Orders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Orders</h1>
+
+<p>
+    <a class="text-dark" asp-page="Create">Add New Order</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="text-info">
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].User)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Product)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ID)
+            </td>
+            <td>
+                <a class="text-primary" asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a class="text-info" asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a class="text-danger" asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
