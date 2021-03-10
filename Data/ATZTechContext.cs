@@ -7,17 +7,17 @@ using ATZTech.Models;
 
 namespace ATZTech.Data
 {
-    public class ATZTechContext : DbContext
+    public class ATZTechContext : DbContext  
     {
-        public ATZTechContext (DbContextOptions<ATZTechContext> options)
+        public ATZTechContext (DbContextOptions<ATZTechContext> options)  // database 
             : base(options)
         {
         }
 
-        public DbSet<ATZTech.Models.Product> Product { get; set; }
+        public DbSet<ATZTech.Models.Product> Product { get; set; }  // product table
 
-        public DbSet<ATZTech.Models.User> User { get; set; }
+        public DbSet<ATZTech.Models.User> User { get; set; } // users table
 
-        public DbSet<ATZTech.Models.Order> Order { get; set; }
+        public DbSet<ATZTech.Models.Order> Order { get; set; } // order table
     }
 }
